@@ -19,9 +19,8 @@ export async function convert_pdf_to_pngs(pdf_file_path: string, output_image_di
       const page = doc.loadPage(i);
       const pixmap = page.toPixmap(matrix, ColorSpace.DeviceRGB, false, true);
       const pngImage = pixmap.asPNG()
-      const pngBuffer = Buffer.from(pngImage).toString('base64')
       const output_png_path = path.join(output_image_dir, `${String(i + 1).padStart(4, '0')}.png`);
-      await fs.promises.writeFile(output_png_path, pngBuffer);
+      await fs.promises.writeFile(output_png_path, pngImage);
       generated_files.push(output_png_path);
       page.destroy();
       pixmap.destroy();
