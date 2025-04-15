@@ -1,0 +1,39 @@
+name: "Extract to Github"
+description: "Exports Google Drive files (Docs, Slides, PDFs, etc.) changed in a PR as PNG images for visual diffing."
+
+inputs:
+  github_token:
+    description: "GitHub Token to fetch PR details and push changes."
+    required: true
+    default: ${{ github.token }}
+  google_service_account_key:
+    description: "Google Service Account Key JSON for Drive API access."
+    required: true
+  link_file_suffix:
+    description: "Suffix of the link files containing Drive ID and MIME type."
+    required: false
+    default: ".gdrive-link.json" # More generic default
+  output_directory:
+    description: "Directory within the repo to store generated PNGs."
+    required: false
+    default: "gdrive_visual_diffs" # Renamed output dir
+  image_resolution:
+    description: "Resolution (DPI) for converting PDF pages to PNG."
+    required: false
+    default: "150" # 150 DPI is often a good balance
+  git_user_name:
+    description: "Git user name for commit."
+    required: false
+    default: "github-actions[bot]"
+  git_user_email:
+    description: "Git user email for commit."
+    required: false
+    default: "github-actions[bot]@users.noreply.github.com"
+
+outputs:
+  generated_files_count:
+    description: "Number of PNG files generated or updated."
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
