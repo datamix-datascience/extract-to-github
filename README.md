@@ -12,3 +12,10 @@ Extract Google Drive files and sync them to Github
   console.log('Generated files:', generatedFiles);
 })();
 ```
+
+## Release
+```bash
+# Make changes, commit, push...
+chmod +x release.sh
+./release.sh v1.0.0 # Use semantic versioning
+```

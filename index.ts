@@ -4,9 +4,9 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import { Buffer } from 'buffer';
 
-import { get_google_auth } from './google_auth';
-import { convert_pdf_to_pngs } from './pdf_converter';
-import { configure_git, commit_and_push_changes } from './git_utils';
+import { get_google_auth } from './libs/google_auth';
+import { convert_pdf_to_pngs } from './libs/pdf_converter';
+import { configure_git, commit_and_push_changes } from './libs/git_utils';
 
 // --- Helper Type Guard ---
 function is_readable_stream(obj: any): obj is NodeJS.ReadableStream {

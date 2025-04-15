@@ -2,9 +2,9 @@
   "name": "extract-to-github",
   "version": "1.0.0",
   "description": "Generates PNG for Google Drive files (Docs, Slides, PDF, etc.) in PRs",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build src/main.ts -o dist --source-map --license licenses.txt",
+    "build": "ncc build index.ts -o dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint src/**/*.ts"
