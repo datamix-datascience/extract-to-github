@@ -6,7 +6,7 @@ inputs:
     description: "GitHub Token to fetch PR details and push changes."
     required: true
     default: ${{ github.token }}
-  google_service_account_key:
+  credentials:
     description: "Google Service Account Key JSON for Drive API access."
     required: true
   link_file_suffix:

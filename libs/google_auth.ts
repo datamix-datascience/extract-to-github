@@ -4,7 +4,7 @@ import { drive_v3, google } from 'googleapis';
 
 export async function get_google_auth(): Promise<{ auth: GoogleAuth<any>; drive: drive_v3.Drive } | null> {
   try {
-    const credentials_json_string = core.getInput('google_service_account_key', { required: true });
+    const credentials_json_string = core.getInput('credentials', { required: true });
     if (!credentials_json_string) {
       core.setFailed('Google Service Account Key JSON was not provided.');
       return null;
