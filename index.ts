@@ -38,10 +38,6 @@ async function run(): Promise<void> {
     return;
   }
 
-  if (github.context.eventName !== 'pull_request') {
-    core.warning('Action should run on the "pull_request" event. Skipping.');
-    return;
-  }
   if (!github.context.payload.pull_request) {
     core.setFailed('Pull request payload not found in context.');
     return;

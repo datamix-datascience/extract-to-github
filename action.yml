@@ -12,7 +12,7 @@ inputs:
   link_file_suffix:
     description: "Suffix of the link files containing Drive ID and MIME type."
     required: false
-    default: ".gdrive-link.json" # More generic default
+    default: ".gdrive.json" # More generic default
   output_directory:
     description: "Directory within the repo to store generated PNGs."
     required: false
